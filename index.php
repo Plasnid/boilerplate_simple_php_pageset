@@ -2,6 +2,7 @@
 	/* SECTION 1 */
 	$name_last = $_GET["name_last"];
 	$name_first = $_GET["name_first"];
+	$sex = $_GET["sex"];
 	$notes = $_GET["notes"];
 	/* SECTION 2 */
 	$a = 5;
@@ -9,6 +10,10 @@
 	$c = $a + $b;
 
 	/* SECTION 3 */
+	$sex_arr[0] = "Female";
+	$sex_arr[1] = "Male";
+
+	/* SECTION 4 */
 echo("
 <!DOCTYPE html>
 <html lang=\"en\">
@@ -26,8 +31,8 @@ echo("
     <link rel=\"stylesheet\" href=\"./css/main.css\">
 </head>
 <body>
-    <main>
-		<form action=\"./bork.php\" method=\"get\">
+	<main>
+		<form action=\"./index.php\" method=\"get\">
 			<fieldset>
 				<label for=\"name_last\">Last Name:</label>
 				<input type=\"text\" name=\"name_last\" id=\"name_last\" value=\"$name_last\" placeholder=\"Last Name\">
@@ -36,6 +41,23 @@ echo("
 			<fieldset>
 				<label for=\"name_first\">First Name:</label>
 				<input type=\"text\" name=\"name_first\" id=\"name_first\" value=\"$name_first\" placeholder=\"First Name\">
+			</fieldset>
+
+			<fieldset>
+				<label for=\"sex\">Sex:</label>
+				<select name=\"sex\" id=\"sex\">
+");
+
+foreach ($sex_arr as $key=>$value) {
+	if ($sex == $key) {
+		$sex_checked = " selected=\"selected\"";
+	} else {
+		$sex_checked = "";
+	}
+	echo("<option value=\"$key\"$sex_checked>$value</option>");
+}
+	
+echo("</select>
 			</fieldset>
 
 			<fieldset>
@@ -50,5 +72,5 @@ echo("
 	</main>  
 </body>
 </html>
-")
+");	
 ?>
