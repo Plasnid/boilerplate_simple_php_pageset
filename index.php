@@ -27,7 +27,7 @@ echo("
 </head>
 <body>
     <main>
-		<form action=\"./bork.php\" method=\"get\">
+		<form action=\"./index.php\" method=\"get\">
 			<fieldset>
 				<label for=\"name_last\">Last Name:</label>
 				<input type=\"text\" name=\"name_last\" id=\"name_last\" value=\"$name_last\" placeholder=\"Last Name\">
